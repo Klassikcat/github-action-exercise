@@ -1,0 +1,19 @@
+on: 
+  push:
+    branches: [main]
+jobs:
+  gogo:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout
+        uses: actions/checkout@v4
+        with: 
+          sparse-checkout: |
+            main.py
+      - name: ilovecoding
+        uses: actions/setup-python@v2
+        with: 
+          python-version: 3.11
+      - name: doyourjob
+        run: |
+          python3 main.py
