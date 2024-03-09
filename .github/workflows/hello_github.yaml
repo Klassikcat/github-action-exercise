@@ -17,3 +17,11 @@ jobs:
       - name: doyourjob
         run: |
           python3 main.py
+  build-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: ggstart
+        run: |
+          docker build -t ggtest:latest ./ --build-arg name=universe
